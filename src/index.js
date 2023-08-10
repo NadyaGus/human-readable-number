@@ -10,8 +10,8 @@ module.exports = function toReadable (number) {
     let dozen = ''; //переменная для странных чисел 10-19
     
 
-    switch (reverseString[2] + reverseString[0]) {
-        case '19':
+    switch (reverseString[2] + reverseString[0]) {   // это дурацкие числа. (dozen = дюжина. сюда попали числа, которым нужны отдельные значения)
+        case '19': 
             dozen = ' nineteen';
             break;
         case '18':
@@ -87,7 +87,7 @@ module.exports = function toReadable (number) {
              number2 = ''; 
              break;
         case '1':
-            number2 = dozen; //посмотреть подробнгее
+            number2 = dozen; // тут вставляем дурацкие числа
             break;
         case '2':
             number2 = ' twenty';
@@ -148,8 +148,6 @@ module.exports = function toReadable (number) {
         case '9':
             number1 = ' nine';
     }
-
- // если сточка равно от 11 до 19, то результ равен елевен и т.д
 
     if (dozen !== '') {
         result = `${number3}${dozen}`.trim();
