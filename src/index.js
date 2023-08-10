@@ -1,6 +1,6 @@
 module.exports = function toReadable (number) {
     let stringNumber = number.toString(); // делаю из числа строчку  '123'
-    let arrayOfNumber = Array.from(stringNumber); // делаю массив из строчки '123' >>> ['1', '2', '3']
+    let arrayOfNumber = stringNumber.split(' '); // делаю массив из строчки '123' >>> ['1', '2', '3']
     let reverseArray = arrayOfNumber.reverse(); // делаю реверс массива ['1', '2', '3'] >>> ['3', '2', '1']
     
     let firstNumber = reverseArray[0];  // задаю переменные первой, второй и третей цифре
