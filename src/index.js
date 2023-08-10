@@ -6,7 +6,31 @@ module.exports = function toReadable (number) {
     let firstNumber = reverseArray[0];  // задаю переменные первой, второй и третей цифре
     let secondNumber = reverseArray[1];
     let thirdNumber = reverseArray[2];
-    let result = thirdNumber + secondNumber + firstNumber;
+
+    switch (stringNumber) {
+        case '10':
+            result = 'ten';
+        case '11':
+            result = 'eleven';
+        case '12':
+            result = 'twelwe';
+        case '13':
+            result ='thirteen';
+        case '14':
+            result ='fourteen';
+        case '15':
+            result ='fifteen';
+        case '16':
+            result ='sixteen';
+        case '17':
+            result ='seventeen';
+        case '18':
+            result ='eighteen';
+        case '19':
+            result ='nineteen';
+        default:
+            result = thirdNumber + secondNumber + firstNumber;
+    }
 
     switch (reverseArray[0]) {
         case '0':
@@ -108,6 +132,31 @@ module.exports = function toReadable (number) {
             break;
         default:
             thirdNumber = '';     
+    }
+    
+        switch (stringNumber) {
+        case '10':
+            result = 'ten';
+        case '11':
+            result = 'eleven';
+        case '12':
+            result = 'twelwe';
+        case '13':
+            result ='thirteen';
+        case '14':
+            result ='fourteen';
+        case '15':
+            result ='fifteen';
+        case '16':
+            result ='sixteen';
+        case '17':
+            result ='seventeen';
+        case '18':
+            result ='eighteen';
+        case '19':
+            result ='nineteen';
+        default:
+            result = thirdNumber + secondNumber + firstNumber;
     }
     return result;
 };
