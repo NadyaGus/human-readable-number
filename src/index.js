@@ -1,162 +1,118 @@
 module.exports = function toReadable (number) {
-    let stringNumber = number.toString(); // делаю из числа строчку  '123'
-    let arrayOfNumber = stringNumber.split(' '); // делаю массив из строчки '123' >>> ['1', '2', '3']
-    let reverseArray = arrayOfNumber.reverse(); // делаю реверс массива ['1', '2', '3'] >>> ['3', '2', '1']
+    stringFromNumber = number.toString(); // сделала строчку из числа "123"
+    arrayFromString = stringFromNumber.split(''); // сделала массив ['1', '2', '3']
+    let reverse = arrayFromString.reverse(); // сделала реверс прототипа ['3', '2', '1']
+    let reverseString = reverse.toString(); //сделала обратно строку, получила реверс первой строки "1,2,3" >>> "3,2,1"
+
+    let number1 = reverseString[0].trim(); // задала номер числам из массива. это единицы
+    let number2 = reverseString[2].trim(); // это десятки
+    let number3 = reverseString[4].trim(); // это сотни
+    let dozen = ''; //переменная для странных чисел 10-19
     
-    let firstNumber = reverseArray[0];  // задаю переменные первой, второй и третей цифре
-    let secondNumber = reverseArray[1];
-    let thirdNumber = reverseArray[2];
 
-    switch (stringNumber) {
-        case '10':
-            result = 'ten';
-        case '11':
-            result = 'eleven';
-        case '12':
-            result = 'twelwe';
-        case '13':
-            result ='thirteen';
-        case '14':
-            result ='fourteen';
-        case '15':
-            result ='fifteen';
-        case '16':
-            result ='sixteen';
-        case '17':
-            result ='seventeen';
-        case '18':
-            result ='eighteen';
-        case '19':
-            result ='nineteen';
-        default:
-            result = thirdNumber + secondNumber + firstNumber;
-    }
-
-    switch (reverseArray[0]) {
-        case '0':
-            firstNumber = '';
+    switch (reverseString[4]) {   //это сотни
+        case undefined:
+            number3 = ''.trim();
             break;
         case '1':
-            firstNumber = 'one';
+            number3 = 'one hundred';
             break;
         case '2':
-            firstNumber = 'two';
+            number3 = 'two hundred';
             break;
         case '3':
-            firstNumber = 'three';
+            number3 = 'three hundred';
             break;
         case '4':
-            firstNumber = 'four';
+            number3 = 'four hundred';
             break;
         case '5':
-            firstNumber = 'five';
+            number3 = 'five hundred';
             break;
         case '6':
-            firstNumber = 'six';
+            number3 = 'six hundred';
             break;
         case '7':
-            firstNumber = 'seven';
+            number3 = 'seven hundred';
             break;
         case '8':
-            firstNumber = 'eight';
+            number3 = 'eight hundred';
             break;
         case '9':
-            firstNumber = 'nine';
-            break;        
+            number3 = 'nine hundred';
     }
 
-    switch (reverseArray[1]) {
-        case '0':
-            secondNumber = '';
+    switch (reverseString[2]) {  //это десятки
+        case undefined:
+            number2 = '';
             break;
+        case '0':
+             number2 = ''; //посмотреть подробнгее
+             break;
         case '1':
-            secondNumber = 'one';
+            number2 = dozen; //посмотреть подробнгее
             break;
         case '2':
-            secondNumber = 'twenty';
+            number2 = 'twenty';
             break;
         case '3':
-            secondNumber = 'thirty';
+            number2 = 'thirty';
             break;
         case '4':
-            secondNumber = 'forty';
+            number2 = 'forty';
             break;
         case '5':
-            secondNumber = 'fivty';
+            number2 = 'fifty';
             break;
         case '6':
-            secondNumber = 'sixty';
+            number2 = 'sixty';
             break;
         case '7':
-            secondNumber = 'seventy';
+            number2 = 'seventy';
             break;
         case '8':
-            secondNumber = 'eighty';
+            number2 = 'eighty';
             break;
         case '9':
-            secondNumber = 'ninety';
-            break;
-        default:
-            secondNumber = '';     
+            number2 = 'ninety';
     }
-    switch (reverseArray[2]) {
-        case '0':
-            thirdNumber = '';
+
+    switch (reverseString[0]) {  //это единицы
+        case undefined:
+            number1 = '';
             break;
+         case '0':
+             number1 = ''; 
+             break;
         case '1':
-            thirdNumber = 'one hundred';
+            number1 = 'one'; 
             break;
         case '2':
-            thirdNumber = 'two hundred';
+            number1 = 'two';
             break;
         case '3':
-            thirdNumber = 'three hundred';
+            number1 = 'three';
             break;
         case '4':
-            thirdNumber = 'four hundred';
+            number1 = 'four';
             break;
         case '5':
-            thirdNumber = 'five hundred';
+            number1 = 'five';
             break;
         case '6':
-            thirdNumber = 'six hundred';
+            number1 = 'six';
             break;
         case '7':
-            thirdNumber = 'seven hundred';
+            number1 = 'seven';
             break;
         case '8':
-            thirdNumber = 'eight hundred';
+            number1 = 'eight';
             break;
         case '9':
-            thirdNumber = 'nine hundred';
-            break;
-        default:
-            thirdNumber = '';     
+            number1 = 'nine';
     }
-    
-        switch (stringNumber) {
-        case '10':
-            result = 'ten';
-        case '11':
-            result = 'eleven';
-        case '12':
-            result = 'twelwe';
-        case '13':
-            result ='thirteen';
-        case '14':
-            result ='fourteen';
-        case '15':
-            result ='fifteen';
-        case '16':
-            result ='sixteen';
-        case '17':
-            result ='seventeen';
-        case '18':
-            result ='eighteen';
-        case '19':
-            result ='nineteen';
-        default:
-            result = thirdNumber + secondNumber + firstNumber;
-    }
-    return result;
+
+ // если сточка равно от 11 до 19, то результ равен елевен и т.д
+
+    return result = `${number3} ${number2} ${number1}`.trim(); // возвращение результата
 };
